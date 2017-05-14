@@ -1,0 +1,12 @@
+{
+  "name": "demo-app",
+  "app_id": "",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/wcf",
+      "proxyUrl": "https://********/wcf",
+      "rejectUnauthorized": false
+    }]
+}

@@ -1,0 +1,18 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Customers</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<form-list
+	*ngIf="form"
+	[Form]="form"
+	[Items]="rows"
+	[ColumnsOptions]="columnsOptions">
+</form-list>
+</ion-content>

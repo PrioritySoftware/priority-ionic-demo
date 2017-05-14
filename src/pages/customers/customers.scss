@@ -1,0 +1,13 @@
+page-customers {
+	form-list {
+		ion-icon {
+			color: color($colors,dark);
+		}
+
+		.column.STATDES {
+			position: absolute;
+		    right: 0;
+		    top: 0;
+		}
+	}
+}
