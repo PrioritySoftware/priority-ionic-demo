@@ -1,13 +1,42 @@
 page-customers {
 	form-list {
 		ion-icon {
-			color: color($colors,dark);
+			color: color($colors,secondary);
 		}
 
 		.column.STATDES {
 			position: absolute;
 		    right: 0;
 		    top: 0;
+		    padding: 3px 5px 5px 5px;
+		    background: color($colors,secondary);
+		    color: white;
+		    border-radius: 3px;
+		    .value {
+		    	color: white;
+		    }
+		}
+
+		ion-item {
+			&.active .column.STATDES {
+		    	background: color($colors,secondary);
+		    }
+
+		    &.potential .column.STATDES {
+		    	background: color($colors,primary);
+		    }
+
+		    &.warned .column.STATDES {
+		    	background: color($colors,purple);
+		    }
+
+		    &.restricted .column.STATDES {
+		    	background: color($colors,brown);
+		    }
+
+		    &.inactive .column.STATDES {
+		    	background: color($colors,pink);
+		    }
 		}
 	}
 }

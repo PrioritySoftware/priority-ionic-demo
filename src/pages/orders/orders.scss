@@ -1,3 +1,64 @@
 page-orders {
+	.content {
+		background-color: #fdfdfd;
+	}
+	item-details .column {
+		margin-bottom: 4px;
+		.value.CURDATE {
+			position: absolute;
+		    top: 0;
+		    right: 16px;
+		    color: color($colors,lightgray);
+		    font-size: 0.8em;
+		}
 
+		&.DISPRICE {
+			margin: 0;
+		    position: absolute;
+		    right: 16px;
+		    bottom: 0;
+		    .value {
+		    	font-size: 1em;
+		    	color: color($colors,secondary);
+		    }
+		}
+
+		.value.ORDNAME {
+			font-size: 1em;
+			line-height: 1em;
+			color: color($colors,brown);
+		}
+
+		&.ORDSTATUSDES {
+			margin-bottom: 0;
+		}
+	}
+
+	.item-block {
+		border-top: 3px solid color($colors,lightgray);
+
+		&.draft {
+	    	border-color: color($colors,secondary);
+	    }
+
+	    &.confirmed {
+	    	border-color: color($colors,pink);
+	    }
+
+	    &.in-progress {
+	    	border-color: color($colors,primary);
+	    }
+
+	    &.completed {
+	    	border-color: color($colors,purple);
+	    }
+
+	    &.paid {
+	    	border-color: color($colors,brown);
+	    }
+
+	    &.cancled {
+	    	border-color: color($colors,danger);
+	    }
+	}
 }

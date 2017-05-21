@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormService, Form, MessageHandler, ObjToIterable } from 'priority-ionic';
+import { FormService, Form, Filter, MessageHandler, ObjToIterable } from 'priority-ionic';
 
 @Component({
   selector: 'page-items',
@@ -16,22 +16,36 @@ export class ItemsPage {
 			isShow: true,
 			pos: 1
 		},
-		'PARTNAME': {
-			isShow: true,
-			isShowTitle: true,
-			pos: 2
-		},
 		'FAMILYDES': {
 			isShow: true,
-			isShowTitle: true,
 			pos: 3
 		},
 		'EXTFILENAME': {
 			thumbnail: true
+		},
+		'BASEPLPRICE': {
+			isShow: true,
+			pos: 4,
+			concat: 'BASEPLCODE'
 		}
 	}
 
-  constructor(public navCtrl: NavController,
+	filter: Filter = {
+		or: 1,
+		ignorecase: 1,
+		QueryValues: [{
+			field: 'FAMILYNAME',
+			fromval: '0*',
+			toval: '',
+			op: '<>',
+			sort: 0,
+			isdesc: 0
+		}]
+	}
+
+	sortColumn = 'PARTDES';
+
+    constructor(public navCtrl: NavController,
 			  public navParams: NavParams,
 			  private formService: FormService,
 			  private messageHandler: MessageHandler,
@@ -40,7 +54,7 @@ export class ItemsPage {
 
   ionViewDidLoad() {
   	this.messageHandler.showTransLoading("","Loading data...");
-    this.formService.startFormAndGetRows('LOGPART', 'test').then((form: Form) => {
+    this.formService.startFormAndGetRows('LOGPART', 'usdemo', this.filter , 1).then((form: Form) => {
     	this.form = form;
     	this.rows = this.objToIterable.transform(form.rows);
     	this.messageHandler.hideLoading();

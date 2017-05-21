@@ -1,7 +1,7 @@
 
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Customers</ion-title>
   </ion-navbar>
 
@@ -13,6 +13,7 @@
 	*ngIf="form"
 	[Form]="form"
 	[Items]="rows"
-	[ColumnsOptions]="columnsOptions">
+	[ColumnsOptions]="columnsOptions"
+	[ItemOptions]="itemOptions">
 </form-list>
 </ion-content>

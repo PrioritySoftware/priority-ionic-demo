@@ -1,3 +1,18 @@
 page-items {
+	ion-label {
+   		white-space: normal;
+	}
 
+	.item-md ion-thumbnail ion-img, .item-md ion-thumbnail img {
+		object-fit: cover;
+	}
+
+	item-details .column.inline .value.BASEPLPRICE {
+		color: color($colors,secondary);
+		font-size: 1em;
+	}
+
+	item-details .column.inline .value.PARTDES {
+		color: color($colors,brown);
+	}
 }

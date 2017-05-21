@@ -1,6 +1,6 @@
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Orders</ion-title>
   </ion-navbar>
 
@@ -8,5 +8,12 @@
 
 
 <ion-content>
-
+<form-list
+	*ngIf="form"
+	card
+	[Form]="form"
+	[Items]="rows"
+	[ColumnsOptions]="columnsOptions"
+	[ItemOptions]="itemOptions">
+</form-list>
 </ion-content>

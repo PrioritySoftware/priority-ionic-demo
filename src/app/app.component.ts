@@ -32,11 +32,10 @@ export class MyApp {
         appname: '',
         devicename: ''
       });
-
       configService.logIn('***','***').then(() =>
       {
         this.nav.setRoot(TabsPage);
-      });
+      },(err) => {alert(err);});
     }
 
   }

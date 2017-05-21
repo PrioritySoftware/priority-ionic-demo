@@ -1,8 +1,8 @@
 
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Items</ion-title>
+  <ion-navbar color="primary">
+    <ion-title>Catalogue</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -13,6 +13,7 @@
 	*ngIf="form"
 	[Form]="form"
 	[Items]="rows"
+	[Sort]="sortColumn"
 	[ColumnsOptions]="columnsOptions">
 </form-list>
 </ion-content>
