@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { FormService, Form, Filter, MessageHandler, ObjToIterable } from 'priority-ionic';
+import { FormService, Form, Filter, Search, MessageHandler, ObjToIterable, ColumnsOptions, ItemOptions } from 'priority-ionic';
 
 @Component({
   selector: 'page-orders',
@@ -11,7 +11,7 @@ export class OrdersPage {
 	form: Form;
 	rows = [];
 
-	columnsOptions = {
+	columnsOptions: ColumnsOptions = {
 		'ORDNAME': {
 			isShow: true,
 			pos: 1
@@ -25,9 +25,9 @@ export class OrdersPage {
 			pos: 4,
 		},
 		'ORDSTATUSDES': {
-			isShowTitle: true,
 			isShow: true,
 			pos: 5,
+			title: 'Status'
 		},
 		'DISPRICE': {
 			isShow: true,
@@ -49,26 +49,22 @@ export class OrdersPage {
 		}]
 	}
 
-	itemOptions = {
+	itemOptions: ItemOptions = {
 		itemClass: (item) => {
-			switch (item['ORDSTATUSDES']) {
-				case "Draft":
-					return 'draft';
-				case "Confirmed":
-					return 'confirmed';
-				case "In Progress":
-					return 'in-progress';
-				case "Completed":
-					return 'completed';
-				case "Paid":
-					return 'paid';
-				case "Canceled":
-					return 'canceled';
-				default:
-					return "";
+			if(item['ORDSTATUSDES'])
+				return item['ORDSTATUSDES'].toLowerCase().replace(' ','-');
+			return '';
+		},
+		subforms: ['ORDERITEMS','ORDERSTEXT'],
+		subformsOptions: {
+			'ORDERSTEXT': {
+				title: 'Remarks'
+			},
+			'ORDERITEMS': {
+				title: 'Items'
 			}
 		},
-		subforms: ['ORDERITEMS','ORDERSTEXT']
+		// click: (item) => {console.log(item);}
 	}
 
   	constructor(public navCtrl: NavController,
@@ -85,10 +81,6 @@ export class OrdersPage {
 	    	this.rows = this.objToIterable.transform(form.rows);
 	    	this.messageHandler.hideLoading();
 	    })
-    }
-
-    itemSelect = (item) => {
-    	this.formService.openSearchOrChoose(this.form,'ORDSTATUSDES')
     }
 
 }

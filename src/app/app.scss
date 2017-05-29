@@ -19,6 +19,10 @@ body {
 	margin: 0 !important;
 }
 
+.scroll-content::-webkit-scrollbar { 
+    display: none; 
+}
+
 a:hover {
     text-decoration: none !important;
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { FormService, Form, Filter, MessageHandler, ObjToIterable } from 'priority-ionic';
 
 @Component({
@@ -53,20 +53,9 @@ export class CustomersPage {
 
 	itemOptions = {
 		itemClass: (item) => {
-			switch (item['STATDES']) {
-				case "Active":
-					return 'active';
-				case "Potential":
-					return 'potential';
-				case "Warned":
-					return 'warned';
-				case "Restricted":
-					return 'restricted';
-				case "Inactive":
-					return 'inactive';
-				default:
-					return "";
-			}
+			if(item['STATDES'])
+				return item['STATDES'].toLowerCase().replace(' ','-');
+			return '';
 		}
 	}
 
@@ -74,10 +63,13 @@ export class CustomersPage {
 			public navParams: NavParams,
 			private formService: FormService,
 			private messageHandler: MessageHandler,
-			private objToIterable: ObjToIterable) {
+			private objToIterable: ObjToIterable,
+			public loadingCtrl: LoadingController) {
     }
 
     ionViewDidLoad() {
+    	var loading = this.loadingCtrl.create();
+    	console.log(loading);
   		this.messageHandler.showTransLoading("","Loading data...");
     	this.formService.startFormAndGetRows('CUSTOMERS', 'usdemo', this.filter).then((form: Form) => {
 	    	this.form = form;

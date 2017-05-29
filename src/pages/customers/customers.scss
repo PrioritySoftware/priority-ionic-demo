@@ -17,7 +17,11 @@ page-customers {
 		    }
 		}
 
-		ion-item {
+		item-details .column.inline .value.CUSTDES {
+			color: color($colors,brown);
+		}
+
+		.item-wrapper {
 			&.active .column.STATDES {
 		    	background: color($colors,secondary);
 		    }

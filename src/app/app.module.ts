@@ -1,5 +1,7 @@
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+// import { BrowserModule } from '@angular/platform-browser';
+// import { BrowserAnimationsModule }  from '@angular/platform-browser/animations';
 import { MyApp } from './app.component';
 import { PriorityIonicModule } from 'priority-ionic';
 
@@ -20,6 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage
   ],
   imports: [
+    // BrowserModule,
+    // BrowserAnimationsModule,
     PriorityIonicModule,
     IonicModule.forRoot(MyApp)
   ],

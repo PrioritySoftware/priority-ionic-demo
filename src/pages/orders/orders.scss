@@ -23,7 +23,7 @@ page-orders {
 		    }
 		}
 
-		.value.ORDNAME {
+		&.inline.ORDNAME .value {
 			font-size: 1em;
 			line-height: 1em;
 			color: color($colors,brown);
@@ -34,7 +34,7 @@ page-orders {
 		}
 	}
 
-	.item-block {
+	.item-wrapper {
 		border-top: 3px solid color($colors,lightgray);
 
 		&.draft {
