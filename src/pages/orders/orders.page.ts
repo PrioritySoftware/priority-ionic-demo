@@ -50,13 +50,12 @@ export class OrdersPage {
 	}
 
 	itemOptions: ItemOptions = {
-		itemClass: (item) => {
+		cssClass: (item) => {
 			if(item['ORDSTATUSDES'])
 				return item['ORDSTATUSDES'].toLowerCase().replace(' ','-');
 			return '';
 		},
-		subforms: ['ORDERITEMS','ORDERSTEXT'],
-		subformsOptions: {
+		subforms: {
 			'ORDERSTEXT': {
 				title: 'Remarks'
 			},

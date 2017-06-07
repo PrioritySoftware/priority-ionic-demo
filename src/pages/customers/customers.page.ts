@@ -52,7 +52,7 @@ export class CustomersPage {
 	}
 
 	itemOptions = {
-		itemClass: (item) => {
+		cssClass: (item) => {
 			if(item['STATDES'])
 				return item['STATDES'].toLowerCase().replace(' ','-');
 			return '';
