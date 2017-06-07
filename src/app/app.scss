@@ -19,6 +19,12 @@ body {
 	margin: 0 !important;
 }
 
+ion-app {
+  background-image: url("../assets/images/conf_splash.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .scroll-content::-webkit-scrollbar { 
     display: none; 
 }
